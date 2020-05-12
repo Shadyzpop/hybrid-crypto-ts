@@ -32,6 +32,9 @@ if (!Array.prototype.every) {
   }
 
 function isPrivateKeyObject(object: any): object is pki.PrivateKey {
+    if (typeof object === 'string') {
+      return false;
+    };
     return 'sign' in object;
 }
 
